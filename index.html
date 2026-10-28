@@ -1,0 +1,278 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- LOGIN PAGE -->
+    <main id="loginPage" class="login-container">
+        <div class="logo">R</div>
+        <h1>Welcome Back</h1>
+        <p class="subtitle">Sign in to access your Rent Portal</p>
+
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username"
+                       placeholder="Enter your username" required>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password"
+                       placeholder="Enter your password" required>
+            </div>
+
+            <p id="message" role="status" aria-live="polite"></p>
+            <button type="submit">Login <span>→</span></button>
+        </form>
+
+        <p class="footer-text">Your Home Management Portal</p>
+    </main>
+
+    <!-- HOMEPAGE / DASHBOARD -->
+    <main id="dashboardPage" class="dashboard hidden">
+        <header class="topbar">
+            <div class="brand">
+                <div class="small-logo">R</div>
+                <span>Rent<span class="brand-accent">Portal</span></span>
+            </div>
+            <button id="logoutButton" class="logout-button">Logout ↗</button>
+        </header>
+
+        <section class="welcome-section">
+            <p class="eyebrow">YOUR PERSONAL DASHBOARD</p>
+            <h1>Welcome to Rent Portal</h1>
+            <p class="welcome-text">
+                Manage your home rental information and utility bills
+                from one convenient place.
+            </p>
+        </section>
+
+        <section class="services">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">QUICK ACCESS</p>
+                    <h2>Explore Services</h2>
+                </div>
+                <span class="service-count">04 SERVICES</span>
+            </div>
+
+            <div class="card-grid">
+                <button class="service-card" data-section="rentSection">
+                    <div class="card-icon rent-icon">⌂</div>
+                    <span class="card-number">01</span>
+                    <h3>House Rent Management</h3>
+                    <p>Explore rental details and manage house rent records.</p>
+                    <span class="card-link">Explore service <b>→</b></span>
+                </button>
+
+                <button class="service-card" data-section="electricitySection">
+                    <div class="card-icon electricity-icon">ϟ</div>
+                    <span class="card-number">02</span>
+                    <h3>Electricity Bill</h3>
+                    <p>Access electricity bill information and payment records.</p>
+                    <span class="card-link">Explore service <b>→</b></span>
+                </button>
+
+                <button class="service-card" data-section="waterSection">
+                    <div class="card-icon water-icon">≈</div>
+                    <span class="card-number">03</span>
+                    <h3>Water Bill</h3>
+                    <p>Keep your water bill information organized in one place.</p>
+                    <span class="card-link">Explore service <b>→</b></span>
+                </button>
+
+                <button class="service-card" data-section="creatorSection">
+                    <div class="card-icon creator-icon">✦</div>
+                    <span class="card-number">04</span>
+                    <h3>About the Creator</h3>
+                    <p>Learn about the developer behind Rent Portal.</p>
+                    <span class="card-link">Meet the creator <b>→</b></span>
+                </button>
+            </div>
+        </section>
+
+        <footer class="dashboard-footer">
+            <span>Rent Portal</span>
+            <span>Simple living. Smarter management.</span>
+        </footer>
+    </main>
+
+    <!-- SERVICE DETAILS -->
+    <main id="detailPage" class="detail-page hidden">
+        <header class="topbar">
+            <div class="brand">
+                <div class="small-logo">R</div>
+                <span>Rent<span class="brand-accent">Portal</span></span>
+            </div>
+            <button id="detailLogoutButton" class="logout-button">Logout ↗</button>
+        </header>
+
+        <button id="backButton" class="back-button">← Back to Homepage</button>
+
+        
+
+<section id="rentSection" class="detail-panel hidden">
+
+    <div class="detail-icon rent-icon">⌂</div>
+    <p class="eyebrow">SERVICE 01</p>
+    <h1>House Rent Management</h1>
+    <p class="detail-description">
+        Select a floor to view its apartments and rental information.
+    </p>
+
+    <!-- Floor selection -->
+    <div id="rentFloorView">
+        <h2 class="rent-section-title">Select a Floor</h2>
+        <div id="floorGrid" class="floor-grid"></div>
+    </div>
+
+    <!-- Side A / Side B selection -->
+    <div id="rentSideView" class="hidden">
+        <button type="button" id="backToFloors" class="back-button">
+            ← All Floors
+        </button>
+
+        <h2 id="selectedFloorTitle" class="rent-section-title">
+            Floor 1
+        </h2>
+        <p class="detail-description">
+            Choose a side to view its details.
+        </p>
+
+        <div class="side-grid">
+            <button type="button" class="side-card" data-side="A">
+                <span class="side-letter">A</span>
+                <h3>Side A</h3>
+                <p>View apartment details</p>
+                <span class="card-link">Open Side →</span>
+            </button>
+
+            <button type="button" class="side-card" data-side="B">
+                <span class="side-letter">B</span>
+                <h3>Side B</h3>
+                <p>View apartment details</p>
+                <span class="card-link">Open Side →</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Selected unit details -->
+    <div id="rentUnitView" class="hidden">
+        <button type="button" id="backToSides" class="back-button">
+            ← Back to Sides
+        </button>
+
+        <div class="unit-heading">
+            <div class="detail-icon rent-icon">⌂</div>
+            <div>
+                <p class="eyebrow">APARTMENT DETAILS</p>
+                <h2 id="selectedUnitTitle">Floor 1 - Side A</h2>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h3>Rent Details</h3>
+            <p>
+                This is the dedicated space for this apartment's
+                rental information.
+            </p>
+            <ul class="unit-feature-list">
+                <li>Tenant information</li>
+                <li>Monthly rent amount</li>
+                <li>Rent payment status</li>
+                <li>Electricity and water bills</li>
+            </ul>
+            <p class="coming-soon-label">
+                Rent details form will be added in the next step.
+            </p>
+        </div>
+    </div>
+
+</section>
+
+        <section id="electricitySection" class="detail-panel hidden">
+            <div class="detail-icon electricity-icon">ϟ</div>
+            <p class="eyebrow">SERVICE 02</p>
+            <h1>Electricity Bill</h1>
+            <p class="detail-description">
+                Keep track of electricity bills and organize your
+                monthly electricity expenses.
+            </p>
+            <div class="info-box">
+                <h3>Coming Soon</h3>
+                <p>Monthly bill details, meter readings and payment history can be added here.</p>
+            </div>
+        </section>
+
+        <section id="waterSection" class="detail-panel hidden">
+            <div class="detail-icon water-icon">≈</div>
+            <p class="eyebrow">SERVICE 03</p>
+            <h1>Water Bill</h1>
+            <p class="detail-description">
+                Keep your water-related expenses and billing information
+                organized in one place.
+            </p>
+            <div class="info-box">
+                <h3>Coming Soon</h3>
+                <p>Water bill records, monthly expenses and payment status can be added here.</p>
+            </div>
+        </section>
+
+        <section id="creatorSection" class="detail-panel creator-panel hidden">
+            <div class="creator-avatar">AA</div>
+            <p class="eyebrow">MEET THE DEVELOPER</p>
+            <h1>About the Creator</h1>
+            <p class="detail-description">
+                Designed and developed with a passion for technology
+                and practical digital solutions.
+            </p>
+
+            <div class="creator-card">
+                <p class="profile-label">DEVELOPER</p>
+                <h2>Arif Bin Aslam</h2>
+                <p class="creator-role">Undergraduate Student · Department of CSE</p>
+                <div class="profile-divider"></div>
+
+                <div class="profile-item">
+                    <span class="profile-symbol">⌂</span>
+                    <div>
+                        <span class="profile-label">UNIVERSITY</span>
+                        <p>East West University</p>
+                    </div>
+                </div>
+
+                <div class="profile-item">
+                    <span class="profile-symbol">@</span>
+                    <div>
+                        <span class="profile-label">EMAIL ADDRESS</span>
+                        <p><a href="mailto:arif.ibn.aslam@gmail.com">arif.ibn.aslam@gmail.com</a></p>
+                    </div>
+                </div>
+
+                <div class="profile-item">
+                    <span class="profile-symbol">☎</span>
+                    <div>
+                        <span class="profile-label">CONTACT NUMBER</span>
+                        <p><a href="tel:01312100563">01312100563</a></p>
+                    </div>
+                </div>
+            </div>
+            <p class="creator-note">Thank you for visiting Rent Portal.</p>
+        </section>
+
+        <footer class="dashboard-footer">
+            <span>Rent Portal</span>
+            <span>Simple living. Smarter management.</span>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

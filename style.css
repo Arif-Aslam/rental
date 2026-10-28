@@ -1,0 +1,978 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background: #090d19;
+    --panel: #141b30;
+    --text: #f8fafc;
+    --muted: #a5b0c8;
+    --accent: #818cf8;
+    --border: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    min-height: 100vh;
+    padding: 24px;
+    font-family: Arial, sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(ellipse at top left, #243b70 0%, transparent 45%),
+        radial-gradient(ellipse at bottom right, #34205c 0%, transparent 45%),
+        var(--background);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Login page */
+
+.login-container {
+    width: 100%;
+    max-width: 410px;
+    margin: 7vh auto;
+    padding: 42px 34px;
+    background: rgba(20, 27, 48, 0.92);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+    animation: appear 0.6s ease;
+}
+
+.logo, .small-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #818cf8, #6366f1);
+    color: white;
+    font-weight: bold;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 24px;
+    border-radius: 18px;
+    font-size: 30px;
+}
+
+.login-container h1,
+.login-container .subtitle {
+    text-align: center;
+}
+
+.login-container h1 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 32px;
+}
+
+.input-group {
+    margin-bottom: 21px;
+}
+
+label {
+    display: block;
+    margin-bottom: 9px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+input {
+    width: 100%;
+    padding: 15px 14px;
+    background: #0d1427;
+    border: 1px solid #303b56;
+    border-radius: 10px;
+    outline: none;
+    color: white;
+    font-size: 14px;
+}
+
+input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.13);
+}
+
+input::placeholder {
+    color: #77839d;
+}
+
+#message {
+    min-height: 20px;
+    margin-bottom: 14px;
+    text-align: center;
+    font-size: 13px;
+}
+
+#message.error {
+    color: #fda4af;
+}
+
+#message.success {
+    color: #86efac;
+}
+
+.login-container form button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(100deg, #6366f1, #818cf8);
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.login-container form button span {
+    margin-left: 8px;
+    font-size: 20px;
+}
+
+.login-container form button:hover {
+    filter: brightness(1.12);
+    transform: translateY(-2px);
+}
+
+.footer-text {
+    margin-top: 27px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 12px;
+    color: #8793ad;
+}
+
+/* Dashboard and navigation */
+
+.dashboard, .detail-page {
+    max-width: 1120px;
+    margin: 0 auto;
+    animation: appear 0.5s ease;
+}
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0 25px;
+    border-bottom: 1px solid var(--border);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.small-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    font-size: 21px;
+}
+
+.brand-accent {
+    color: var(--accent);
+}
+
+.logout-button, .back-button {
+    padding: 11px 16px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.04);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.logout-button:hover, .back-button:hover {
+    background: rgba(129, 140, 248, 0.15);
+    border-color: var(--accent);
+}
+
+.welcome-section {
+    padding: 58px 0 45px;
+}
+
+.eyebrow {
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 14px;
+}
+
+.welcome-section h1 {
+    font-size: clamp(30px, 5vw, 46px);
+    letter-spacing: -1.2px;
+    margin-bottom: 16px;
+}
+
+.welcome-text {
+    max-width: 590px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.section-heading h2 {
+    font-size: 24px;
+}
+
+.service-count {
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.service-card {
+    position: relative;
+    min-height: 235px;
+    padding: 27px;
+    text-align: left;
+    color: var(--text);
+    background: rgba(20, 27, 48, 0.88);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    cursor: pointer;
+    transition: transform 0.25s, border-color 0.25s, background 0.25s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(129, 140, 248, 0.65);
+    background: rgba(29, 39, 68, 0.96);
+}
+
+.card-icon, .detail-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(129, 140, 248, 0.13);
+    border-radius: 14px;
+    font-size: 29px;
+}
+
+.card-icon {
+    width: 54px;
+    height: 54px;
+    margin-bottom: 22px;
+}
+
+.rent-icon { color: #a5b4fc; }
+.electricity-icon { color: #fcd34d; }
+.water-icon { color: #67e8f9; }
+.creator-icon { color: #c4b5fd; }
+
+.card-number {
+    position: absolute;
+    top: 31px;
+    right: 27px;
+    color: #6f7a95;
+    font-size: 12px;
+}
+
+.service-card h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.service-card p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.card-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 22px;
+    color: #a5b4fc;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.card-link b {
+    font-size: 19px;
+}
+
+.dashboard-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 55px;
+    padding: 22px 0 10px;
+    border-top: 1px solid var(--border);
+    color: #8793ad;
+    font-size: 12px;
+}
+
+/* Service detail pages */
+
+.back-button {
+    margin: 28px 0;
+}
+
+.detail-panel {
+    max-width: 760px;
+    margin: 25px auto 0;
+    padding: 40px;
+    background: rgba(20, 27, 48, 0.9);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    animation: appear 0.4s ease;
+}
+
+.detail-icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 26px;
+}
+
+.detail-panel h1 {
+    font-size: clamp(26px, 4vw, 36px);
+    margin-bottom: 16px;
+}
+
+.detail-description {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.info-box {
+    margin-top: 30px;
+    padding: 23px;
+    background: rgba(129, 140, 248, 0.08);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+}
+
+.info-box h3 {
+    margin-bottom: 10px;
+}
+
+.info-box p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* Creator profile */
+
+.creator-panel {
+    text-align: center;
+}
+
+.creator-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 84px;
+    height: 84px;
+    margin: 0 auto 25px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #818cf8, #6d28d9);
+    box-shadow: 0 10px 35px rgba(99, 102, 241, 0.25);
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.creator-card {
+    margin-top: 30px;
+    padding: 27px;
+    text-align: left;
+    background: rgba(9, 13, 25, 0.55);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+}
+
+.creator-card h2 {
+    font-size: 25px;
+    margin: 8px 0;
+}
+
+.creator-role {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.profile-label {
+    color: var(--accent);
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.profile-divider {
+    height: 1px;
+    margin: 24px 0;
+    background: var(--border);
+}
+
+.profile-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 22px;
+    overflow-wrap: anywhere;
+}
+
+.profile-symbol {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 11px;
+    color: #a5b4fc;
+    background: rgba(129, 140, 248, 0.13);
+    font-size: 19px;
+}
+
+.profile-item p {
+    margin-top: 6px;
+    color: #e2e8f0;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.profile-item a {
+    color: #c7d2fe;
+    text-decoration: none;
+}
+
+.profile-item a:hover {
+    text-decoration: underline;
+}
+
+.creator-note {
+    margin-top: 25px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 650px) {
+    body {
+        padding: 16px;
+    }
+
+    .login-container {
+        margin-top: 6vh;
+        padding: 34px 23px;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .welcome-section {
+        padding: 42px 0 32px;
+    }
+
+    .service-card {
+        min-height: 220px;
+        padding: 23px;
+    }
+
+    .section-heading h2 {
+        font-size: 21px;
+    }
+
+    .service-count {
+        font-size: 9px;
+    }
+
+    .detail-panel {
+        padding: 25px 20px;
+    }
+
+    .creator-card {
+        padding: 20px 16px;
+    }
+
+    .dashboard-footer {
+        flex-direction: column;
+    }
+}
+
+/* Floor and apartment navigation */
+
+.rent-section-title {
+    margin: 30px 0 18px;
+    font-size: 22px;
+}
+
+.floor-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.floor-card,
+.side-card {
+    text-align: left;
+    color: var(--text);
+    background: rgba(9, 13, 25, 0.55);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.2s,
+                background 0.2s;
+}
+
+.floor-card {
+    min-height: 125px;
+    padding: 18px;
+}
+
+.floor-card:hover,
+.side-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+    background: rgba(129, 140, 248, 0.09);
+}
+
+.floor-icon {
+    display: block;
+    margin-bottom: 15px;
+    color: var(--accent);
+    font-size: 25px;
+}
+
+.floor-card h3,
+.side-card h3 {
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.floor-card p,
+.side-card p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.side-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 25px;
+}
+
+.side-card {
+    padding: 25px;
+}
+
+.side-letter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 54px;
+    height: 54px;
+    margin-bottom: 20px;
+    border-radius: 14px;
+    background: rgba(129, 140, 248, 0.15);
+    color: #c7d2fe;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.side-card .card-link {
+    display: block;
+    margin-top: 20px;
+}
+
+.unit-heading {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin: 25px 0;
+}
+
+.unit-heading .detail-icon {
+    flex-shrink: 0;
+    margin: 0;
+}
+
+.unit-heading h2 {
+    font-size: 23px;
+}
+
+.unit-feature-list {
+    margin: 20px 0;
+    padding-left: 22px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 2;
+}
+
+.coming-soon-label {
+    margin-top: 15px;
+    color: #a5b4fc;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+@media (max-width: 600px) {
+    .floor-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .floor-card {
+        padding: 15px;
+        min-height: 115px;
+    }
+
+    .side-grid {
+        gap: 12px;
+    }
+
+    .side-card {
+        padding: 17px;
+    }
+
+    .unit-heading h2 {
+        font-size: 19px;
+    }
+}
+
+/* Room management */
+
+.room-manager {
+    margin: 25px 0;
+}
+
+.room-manager h3 {
+    margin-bottom: 10px;
+}
+
+.room-manager > p {
+    color: var(--muted);
+    margin-bottom: 18px;
+    font-size: 14px;
+}
+
+#roomList {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.room-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 16px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: rgba(9, 13, 25, 0.55);
+    color: var(--text);
+}
+
+.delete-room-button {
+    padding: 8px 12px;
+    border: 1px solid #ef4444;
+    border-radius: 8px;
+    background: transparent;
+    color: #f87171;
+    cursor: pointer;
+}
+
+.delete-room-button:hover {
+    background: rgba(239, 68, 68, 0.12);
+}
+
+#addRoomButton {
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    #roomList {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Room details and monthly payments */
+
+.room-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.room-details-button,
+.delete-room-button,
+.payment-status-button {
+    padding: 8px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+}
+
+.delete-room-button {
+    border-color: #ef4444;
+    color: #f87171;
+}
+
+.room-manager label {
+    display: block;
+    margin: 14px 0 6px;
+}
+
+.room-manager input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: rgba(9, 13, 25, 0.55);
+    color: var(--text);
+}
+
+#roomDetailsPanel {
+    margin-top: 20px;
+}
+
+#roomDetailsPanel > h3 {
+    margin: 20px 0 12px;
+}
+
+#monthlyPaymentList {
+    display: grid;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.payment-row {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: rgba(9, 13, 25, 0.4);
+}
+
+.payment-paid {
+    color: #4ade80;
+    font-weight: 600;
+}
+
+.payment-unpaid {
+    color: #f87171;
+    font-weight: 600;
+}
+
+.payment-status-button {
+    white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+    .room-card {
+        flex-wrap: wrap;
+    }
+
+    .payment-row {
+        grid-template-columns: 1fr auto;
+    }
+
+    .payment-status-button {
+        grid-column: 1 / -1;
+    }
+}
+
+/* Water Bill Management */
+
+.water-manager {
+    margin-top: 25px;
+}
+
+.water-manager > p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 12px 0 20px;
+}
+
+.water-month-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.water-month-card {
+    padding: 20px 12px;
+    min-height: 75px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: rgba(9, 13, 25, 0.55);
+    color: var(--text);
+    font: inherit;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.water-month-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+}
+
+#waterDetailsView {
+    margin-top: 20px;
+}
+
+#waterSelectedMonth {
+    margin: 22px 0;
+}
+
+#waterDetailsView label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+#waterDetailsInput {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 16px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: rgba(9, 13, 25, 0.55);
+    color: var(--text);
+    font: inherit;
+    resize: vertical;
+}
+
+#waterSaveMessage {
+    margin-top: 12px;
+    color: #4ade80;
+    font-size: 14px;
+}
+
+@media (max-width: 600px) {
+    .water-month-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .water-month-card {
+        padding: 16px 8px;
+    }
+}
+
+/* Separate Water Bill and Details options */
+
+.water-option-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin: 22px 0;
+}
+
+.water-option-card {
+    padding: 24px 18px;
+    text-align: left;
+    color: var(--text);
+    background: rgba(9, 13, 25, 0.55);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.water-option-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+}
+
+.water-option-icon {
+    display: block;
+    margin-bottom: 15px;
+    color: var(--accent);
+    font-size: 28px;
+}
+
+.water-option-card h3 {
+    margin-bottom: 8px;
+}
+
+.water-option-card p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+#waterEditorView label {
+    display: block;
+    margin: 16px 0 8px;
+}
+
+#waterEditorView input,
+#waterEditorView textarea {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    padding: 13px;
+    margin-bottom: 16px;
+    color: var(--text);
+    background: rgba(9, 13, 25, 0.55);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font: inherit;
+}
+
+@media (max-width: 600px) {
+    .water-option-grid {
+        grid-template-columns: 1fr;
+    }
+}
